@@ -50,5 +50,6 @@ struct player{
 void initGame();
 int * getRoll();
 scoreSheet * evalRoll();
+void printRoll();
 void nextTurn();
 

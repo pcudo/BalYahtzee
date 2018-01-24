@@ -38,9 +38,9 @@ Repartition des tâches :
 - Nisar -> Interface graphique (?) (Ajouter des représentations graphiques pour chaque dés, ex : 
 
 1 :
-" ___
- |   |
- | o |
- |___| "
+ ___
+|   |
+| o |
+|___| 
 
 - Patrick -> Gestion du jeu et intégration.

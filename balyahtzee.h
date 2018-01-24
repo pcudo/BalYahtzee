@@ -49,7 +49,7 @@ struct player{
 
 void initGame();
 int * getRoll();
-scoreSheet * evalRoll();
-void printRoll();
+scoreSheet * evalRoll(int * roll);
+void printRoll(int * roll);
 void nextTurn();
 

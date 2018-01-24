@@ -2,7 +2,8 @@
 
 Voici le jeu à refaire : https://cardgames.io/yahtzee/
 
-Déroulement d'une partie 
+Déroulement d'une partie :
+- Chaque joueur joue une manche à tour de rôle.
 
 Specifications :
 - 2 joueurs humains

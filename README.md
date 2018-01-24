@@ -33,7 +33,11 @@ Specifications :
   - Rien de spécial (Chance) : Somme de tout les dés
 
 Repartition des tâches :
-- Loic -> Generation de lancer aléatoire.
-- Adham -> Evaluation des scores en fonction de chaque lancers.
-- Nisar -> Interface graphique (?) (Ajouter des représentations graphiques pour chaque dés). 
-- Patrick -> Gestion de la partie et intégration.
+- Loic :
+  - Generation de lancer aléatoire.
+- Adham :
+  - Evaluation des scores en fonction de chaque lancers.
+- Nisar :
+  - Interface graphique :
+    - Representer graphiquement un lancer de dés : https://imgur.com/ekW4Iy6
+- Patrick : Gestion de la partie et intégration.

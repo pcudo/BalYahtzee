@@ -40,4 +40,5 @@ Repartition des tâches :
 - Nisar :
   - Interface graphique :
     - Representer graphiquement un lancer de dés : https://imgur.com/ekW4Iy6
-- Patrick : Gestion de la partie et intégration.
+- Patrick :
+  - Gestion de la partie et intégration.

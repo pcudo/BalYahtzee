@@ -4,11 +4,14 @@ Voici le jeu à refaire : https://cardgames.io/yahtzee/
 
 Déroulement d'une partie :
 - Chaque joueur joue une manche à tour de rôle.
+- Une partie se joue en 18 manches pour chaque joueur. Chaque joueur doit avoir un score renseigné en fonction des lancers de dés sur chaque ligne de la feuille de score.
+- Une manche se joue en 6 lancers au maximum. Le joueur peut choisir de conserver de 1 à 7 dés entre chaque lancer.
+- Le joueur n'a pas l'obligation de faire 6 lancers si le resultat lui convient.
+- Le gagnant est le joueur qui a le plus haut score final.
 
 Specifications :
-- 2 joueurs humains
-- 8 dés
-- 6 lancés de dés par manche
+- 2 joueurs humains.
+- 8 dés.
 - Liste des combinaisons à gerer (combinaison : score):
   - Nombre d'occurences de 1 : 1 * nbDe1
   - Nombre d'occurences de 2 : 2 * nbDe2
@@ -28,3 +31,9 @@ Specifications :
   - Petite suite (1-2-3-4 ou 2-3-4-5 ou 3-4-5-6) : 30 points
   - Grande suite (1-2-3-4-5 ou 2-3-4-5-6) : 40 points
   - Rien de spécial (Chance) : Somme de tout les dés
+
+Repartition des tâches :
+- Loic -> Generation de lancer aléatoire.
+- Adham -> Evaluation des scores en fonction de chaque lancers.
+- Nisar -> Interface graphique (?)
+- Patrick -> Gestion du jeu et intégration.

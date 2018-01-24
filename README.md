@@ -32,6 +32,10 @@ Specifications :
   - Grande suite (1-2-3-4-5 ou 2-3-4-5-6) : 40 points
   - Rien de spécial (Chance) : Somme de tout les dés
 
+Details techniques :
+  - Un roll est un pointeur sur tableau de 8 int.
+  - L'evaluation de chaque roll renvoie un tableau des scores à jour avec les infos du dernier roll.
+
 Repartition des tâches :
 - Loic :
   - Generation de lancer aléatoire. (Fonction getRoll() de balyahtzee.h)
@@ -39,6 +43,6 @@ Repartition des tâches :
   - Evaluation des scores en fonction de chaque lancers. (Fonction evalRoll(int * roll) de balyahtzee.h)
 - Nisar :
   - Interface graphique :
-    - Representer graphiquement un lancer de dés : https://imgur.com/ekW4Iy6 (Fonction printRoll() de balyahtzee.h)
+    - Representer graphiquement un lancer de dés : https://imgur.com/ekW4Iy6 (Fonction printRoll(int * roll) de balyahtzee.h)
 - Patrick :
   - Gestion du jeu et intégration du code.

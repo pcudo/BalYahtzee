@@ -22,13 +22,10 @@ long randValue(int max){
 char * randomPermutation (char * patern,int nb){
   int indice_courant;
   int new_val;
-  char flags [6];
+  char flags [6] = {1,1,1,1,1,1};
   char * perm;
-    
-  perm = ptrCharAlloc(nb);
-  for (indice_courant = 0; indice_courant < nb; indice_courant++) 
-    flags[indice_courant] = 1;
 
+  perm = ptrCharAlloc(nb);
   for (indice_courant = 0; indice_courant < 6 ;indice_courant++){
     do new_val = randValue(6);
     while (!flags[new_val]);

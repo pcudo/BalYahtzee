@@ -3,93 +3,104 @@
 #include <time.h>
 #include <assert.h>
 
+char * allocation(int nb){
+	char * t = malloc (nb * sizeof(char));
+	assert(t);
+	return t;
+}
+
 char * alloc_de(){
-	char * de = malloc (6 * sizeof(char));
-	assert(de);
-	return de;
+	return allocation(6);
 }
 
 /* rend un nombre aléatoire entre 0 et max */
-
 long alea(int max){
-
-	static int Nonce = 0; // = rand(); 
-	srand(Nonce++);
 	return rand() % max;
 }
 
-char * arrange (){
-	char valeur;
-	char crible[6]= {1,1,1,1,1,1};
+/* prend un tableau "patern" de longeur "nb" 
+ et rend une copie de "patern" permuté aléatoirement */
+char * permutationAleatoire (char * patern,int nb){
+	char val;
+	char * flags = allocation(nb);
+	char * perm = allocation(nb);
 
-	char * arrangement = alloc_de();
+	for (int i = 0;i < nb;i++) 
+		flags[i] = 1;
+
 	for (int n=0;n<6;n++){
-		do {
-		   valeur = alea(6);
-		} while (!crible[valeur]);
-		crible[valeur] = 0;
-		arrangement[n] = valeur;
+
+		do val = alea(6);
+		while (!flags[val]);
+
+		flags[val] = 0;
+		perm[n] = patern[val];
 	}
-	return arrangement;
+	free(flags);
+	return perm;
 }
 
-char * listeDoublon(int nb_de){ 
-	char * partition_doublons = alloc_de();
-	int nb_lance = 0;
-	for (int indice = 0;indice<6;indice++){
-		int tmp = alea(nb_de);
-		nb_lance += tmp;
-		if (nb_lance >= nb_de){
-			partition_doublons[indice] = tmp - (nb_lance - nb_de);
-			break;
+
+char * dice_arrange (){
+	static char s [6] = {0,1,2,3,4,5};
+	return permutationAleatoire(s,6);
+}
+
+
+char * list_duplicates(int nb_dice){ 
+	char * partition_duplicates = alloc_de();
+	int dice_accum = 0;
+	int how_many;
+	for (int val = 0;val<6;val++){
+		how_many = alea(nb_dice);
+		dice_accum += how_many;
+		if (dice_accum >= nb_dice){
+			partition_duplicates[val] = how_many - (dice_accum - nb_dice);
+			return partition_duplicates;
 		}
-		partition_doublons[indice] = tmp;
+		partition_duplicates[val] = how_many;
 	}
-	return partition_doublons;
+	return list_duplicates(nb_dice);
 }
 
-char * map(int nb_de){ 
-	char * p = arrange();
-	char * t = listeDoublon(nb_de);
-	for (int i = 0;i<6;i++){
-		p[i] = t[p[i]];
-	}
-	return p;
+char * map(int nb_dice){ 
+	char * perm = dice_arrange();
+	char * duplicates = list_duplicates(nb_dice);
+	for (int val = 0;val<6;val++)
+		perm[val] = duplicates[perm[val]];
+	return perm;
 }
 
 void affiche (char * s){
-		for (int i=0;i<6;i++)
-			printf("%d ",s[i]);
+	for (int i=0;i<6;i++)
+		printf("%d ",s[i]);
 	printf("\n");
 }
 
-int main(){
-	for (int i=0;i<20;i++)
-		affiche (map(8));
-	return 0;
+void test (int n){
+	char * p;
+	int test [6] = {0,0,0,0,0,0};
+	int sum = 0;
+	for (int i=0;i<n;i++){
+		p = map(8);
+		for (int j = 0; j < 6;j++){
+			test[j] += p[j];
+			sum += p[j];
+		}
+	}
+	for (int i=0;i<6;i++)
+			printf("%d ",test[i]);
+		printf("\n");
+	printf("sum : %d \n",sum);
 }
 
-/*
-x1 x2 x3 x4 x5 x6
-3   4 1  0  0  0
+int main(){
+	srand(time(NULL));
 
-x1 3
-x2 4
-x3 1
-x4 
-x5
-x6 
+	for (int i = 0;i<10;i++)
+		affiche (map(8));
 
-x1 6
-x2 4
-x3 5
-x4 2 
+	test(100);
 
-
-{1 4 5 2 3 6}
-4 6 2 
-
-
-
-{3, 0,1,0,0,5}
-*/
+	return 0;
+}

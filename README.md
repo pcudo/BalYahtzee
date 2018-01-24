@@ -35,12 +35,5 @@ Specifications :
 Repartition des tâches :
 - Loic -> Generation de lancer aléatoire.
 - Adham -> Evaluation des scores en fonction de chaque lancers.
-- Nisar -> Interface graphique (?) (Ajouter des représentations graphiques pour chaque dés, ex : 
-
-1 :
- ___
-|   |
-| o |
-|___| 
-
-- Patrick -> Gestion du jeu et intégration.
+- Nisar -> Interface graphique (?) (Ajouter des représentations graphiques pour chaque dés). 
+- Patrick -> Gestion de la partie et intégration.

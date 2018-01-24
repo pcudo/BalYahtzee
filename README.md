@@ -34,11 +34,11 @@ Specifications :
 
 Repartition des tâches :
 - Loic :
-  - Generation de lancer aléatoire.
+  - Generation de lancer aléatoire. (Fonction getRoll() de balyahtzee.h)
 - Adham :
-  - Evaluation des scores en fonction de chaque lancers.
+  - Evaluation des scores en fonction de chaque lancers. (Fonction evalRoll(int * roll) de balyahtzee.h)
 - Nisar :
   - Interface graphique :
-    - Representer graphiquement un lancer de dés : https://imgur.com/ekW4Iy6
+    - Representer graphiquement un lancer de dés : https://imgur.com/ekW4Iy6 (Fonction printRoll() de balyahtzee.h)
 - Patrick :
-  - Gestion de la partie et intégration.
+  - Gestion du jeu et intégration du code.

@@ -38,8 +38,7 @@ Details techniques :
 
 Repartition des tâches :
 - Loic :
-  - Generation de lancer aléatoire. (Fonction getRoll(int nb_dice) de balyahtzee.h)    
-  /* NB : le joueur doit pouvoir relancer 0,1...8 dés de son choix s’il souhaite trouver une meilleure combinaison */ 
+  - Generation de lancer aléatoire. (Fonction getRoll(char * list_of_dice_to_roll_again) de balyahtzee.h)
 - Adham :
   - Evaluation des scores en fonction de chaque lancers. (Fonction evalRoll(int * roll) de balyahtzee.h)
 - Nisar :

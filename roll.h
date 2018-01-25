@@ -26,6 +26,6 @@
  * etc.
  */
 
-int * getRoll(char * dices_to_roll_again);
+int * getRoll(char * list_of_dice_to_roll_again);
 
 #endif /* ROLL_H */

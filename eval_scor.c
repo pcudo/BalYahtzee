@@ -185,8 +185,3 @@ void print_scoreSheet(scoreSheet s){
   printf("chance                 : %d\n",s.chance);
 }
 
-int main(){
-  int t[8] = {3,0,0,0,2,3}; // rool de test
-  scoreSheet s = eval(t);   // eval 
-  print_scoreSheet(s);      // affiche les score
-}

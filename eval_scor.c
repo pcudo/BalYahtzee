@@ -165,6 +165,7 @@ scoreSheet eval(int* roll){
 
 //fonction affichage de scoreSheet
 void print_scoreSheet(scoreSheet s){
+<<<<<<< HEAD
   printf("ones                 :    %d\n\n",s.ones);
   printf("twos                 :    %d\n\n",s.twos);
   printf("threes               :    %d\n\n",s.threes);

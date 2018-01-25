@@ -1,6 +1,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "balyahtzee.h"
+#include "eval_scor.h"
+
+
+int main(){
+  int t[8] = {3,0,0,0,2,3}; // rool de test
+  scoreSheet s = initialize_scoreSheet(s); // initialisation
+  s = eval(t);   // eval
+  print_scoreSheet(s);      // affiche les score
+}
 
 //calcule les cas d'occurences
 scoreSheet occurences(int* roll,scoreSheet s){
@@ -154,7 +163,8 @@ scoreSheet chance(int* roll,scoreSheet s){
 
 //Fonction evaluation du score
 scoreSheet eval(int* roll){
-  scoreSheet s = occurences(roll,s);
+  scoreSheet s = initialize_scoreSheet(s);
+  s = occurences(roll,s);
   s = identical(roll,s);
   s = combinaison(roll,s);
   s = small_straight(roll,s);
@@ -165,7 +175,6 @@ scoreSheet eval(int* roll){
 
 //fonction affichage de scoreSheet
 void print_scoreSheet(scoreSheet s){
-<<<<<<< HEAD
   printf("ones                 :    %d\n\n",s.ones);
   printf("twos                 :    %d\n\n",s.twos);
   printf("threes               :    %d\n\n",s.threes);
@@ -186,8 +195,24 @@ void print_scoreSheet(scoreSheet s){
   printf("chance               :    %d\n",s.chance);
 }
 
-int main(){
-  int t[8] = {3,0,0,0,2,3}; // rool de test
-  scoreSheet s = eval(t);   // eval 
-  print_scoreSheet(s);      // affiche les score
+scoreSheet initialize_scoreSheet(scoreSheet s){
+  s.ones = 0;
+  s.twos = 0;
+  s.threes = 0;
+  s.fours = 0;
+  s.fives = 0;
+  s.sixes = 0;
+  s.three_of_a_kind = 0;
+  s.four_of_a_kind = 0;
+  s.five_of_a_kind = 0;
+  s.six_of_a_kind = 0;
+  s.seven_of_a_kind = 0;
+  s.eight_of_a_kind = 0;
+  s.five_and_three = 0;
+  s.four_and_four = 0;
+  s.full = 0;
+  s.small_straight = 0;
+  s.big_straight = 0;
+  s.chance = 0;
+  return s;
 }

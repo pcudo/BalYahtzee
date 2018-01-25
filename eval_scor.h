@@ -1,0 +1,14 @@
+scoreSheet occurences(int* roll,scoreSheet s);
+scoreSheet identical(int* roll, scoreSheet s);
+int five_in (int* roll);
+int three_in (int* roll);
+int two_in(int* roll);
+int four_twice(int* roll);
+int sum_dice(int* roll);
+scoreSheet combinaison(int* roll,scoreSheet s);
+scoreSheet small_straight(int* roll, scoreSheet s);
+scoreSheet big_straight(int* roll, scoreSheet s);
+scoreSheet chance(int* roll,scoreSheet s);
+scoreSheet eval(int* roll);
+void print_scoreSheet(scoreSheet s);
+scoreSheet initialize_scoreSheet(scoreSheet s);

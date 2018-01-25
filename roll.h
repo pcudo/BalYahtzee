@@ -15,7 +15,7 @@
  *                                                                   1 fois la face 6 )
  *
  * Maintenant, supposons avoir déjà lancé les 8 dés et avoir obtenu {0 1 4 0 2 1} 
- * On affiche avec printRoll quelque chose comme $$$ 2 3 3 3 3 5 6 $$$
+ * On affiche avec printRoll quelque chose comme $$$ 2 3 3 3 3 5 5 6 $$$
  * Dans ce cas là, le joueur peut vouloir relancer (par exemple) les dés 2,5,5 et 6.
  *
  * Nous appelons donc :    getRoll("2556")    qui va nous générer

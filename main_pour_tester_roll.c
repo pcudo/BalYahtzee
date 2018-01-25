@@ -1,19 +1,33 @@
 #ifndef MAIN_POUR_TESTER_ROLL_C
 #define MAIN_POUR_TESTER_ROLL_C
 
-/* gcc roll.h roll.c main_pour_tester_roll.c -Wall */
-
 #include "roll.h"
 
+/* pour tester :
+ * gcc roll.c main_pour_tester_roll.c roll.h -Wall
+ */
+
+static void localPrintRoll(int * roll){
+  printf("6 faces :    { 1 2 3 4 5 6 }\noccurrences :  ");
+  for (int the_i_th_dice = 0;the_i_th_dice < 6;the_i_th_dice++)
+    printf("%d ",roll[the_i_th_dice]);
+  printf("\t(total : 8 dés)\n");
+}
+
 int main(){
-	srand(time(NULL));	
-	
-	for (int i = 0;i<10;i++)
-		printRoll (getRoll(8));
-
-	StatRoll(10000);
-
-	return 0;
+  srand(time(NULL));
+  char dice_to_roll_again [8] = "";
+   
+  for (;;){
+    localPrintRoll(getRoll(dice_to_roll_again));
+    printf("\n\tsaisisez les dés que vous souhaitez relancer.\n\texemple : \"134\" pour relancer les dés 1, 3 et 4\n\n");
+        
+    char * ptr = dice_to_roll_again; 
+    do * ptr = getchar();
+    while (*ptr++ != '\n');
+    *--ptr = 0;
+  }
+  return 0;
 }
 
 #endif /* MAIN_POUR_TESTER_ROLL_C */

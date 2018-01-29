@@ -31,5 +31,14 @@ int * getRoll(char * list_of_dice_to_roll_again){
   return roll;
 }
 
+int * occToDice(int * roll){
+  int * dices;
+  int dice = 0;
+  dices = malloc(8 * sizeof(int));
+  for(int face = 0; face < 6; face++)
+    for(int nb_dup = roll[face]; nb_dup; nb_dup--)
+      dices[dice++] = face + 1;
+  return dices;
+}
 
 #endif /* ROLL_C */

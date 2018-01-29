@@ -27,5 +27,6 @@
  */
 
 int * getRoll(char * list_of_dice_to_roll_again);
+int * occToDice(int * roll);
 
 #endif /* ROLL_H */

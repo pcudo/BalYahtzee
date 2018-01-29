@@ -18,38 +18,44 @@
 
 typedef struct scoreSheet scoreSheet;
 typedef struct player player;
+typedef struct game game;
+
+struct game{
+  player * player1;
+  player * player2;
+  int turns;
+};
 
 struct scoreSheet{
-  char ones;
-  char twos;
-  char threes;
-  char fours;
-  char fives;
-  char sixes;
-  char three_of_a_kind;
-  char four_of_a_kind;
-  char five_of_a_kind;
-  char six_of_a_kind;
-  char seven_of_a_kind;
-  char eight_of_a_kind;
-  char five_and_three;
-  char four_and_four;
-  char full;
-  char small_straight;
-  char big_straight;
-  char chance;
+  int ones;
+  int twos;
+  int threes;
+  int fours;
+  int fives;
+  int sixes;
+  int three_of_a_kind;
+  int four_of_a_kind;
+  int five_of_a_kind;
+  int six_of_a_kind;
+  int seven_of_a_kind;
+  int eight_of_a_kind;
+  int five_and_three;
+  int four_and_four;
+  int full;
+  int small_straight;
+  int big_straight;
+  int chance;
 };
 
 struct player{
-  char player;
+  char * name;
   short int score;
-  char nbRolls;
   scoreSheet * playerScore;
 };
 
 void initGame();
 int * getRoll();
-scoreSheet * evalRoll(int * roll);
-void printRoll(int * roll);
+scoreSheet * evalRoll(scoreSheet * previousScore, int * roll);
+void printRoll(char * roll);
 void nextTurn();
 

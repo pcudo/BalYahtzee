@@ -27,6 +27,9 @@
  */
 
 int * getRoll(char * list_of_dice_to_roll_again);
-int * occToDice(int * roll);
+
+
+
+int * occToDice(int duplicates [6]);
 
 #endif /* ROLL_H */

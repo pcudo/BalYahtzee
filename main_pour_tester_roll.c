@@ -8,18 +8,18 @@
  */
 
 static void localPrintRoll(int * roll){
-  printf("6 faces :    { 1 2 3 4 5 6 }\noccurrences :  ");
-  for (int the_i_th_dice = 0;the_i_th_dice < 6;the_i_th_dice++)
+  for (int the_i_th_dice = 0;the_i_th_dice < 8;the_i_th_dice++)
     printf("%d ",roll[the_i_th_dice]);
-  printf("\t(total : 8 dés)\n");
+  printf("\n");
 }
+
 
 int main(){
   srand(time(NULL));
   char dice_to_roll_again [8] = "";
    
   for (;;){
-    localPrintRoll(getRoll(dice_to_roll_again));
+    localPrintRoll(occToDice(getRoll(dice_to_roll_again)));
     printf("\n\tsaisisez les dés que vous souhaitez relancer.\n\texemple : \"134\" pour relancer les dés 1, 3 et 4\n\n");
         
     char * ptr = dice_to_roll_again; 

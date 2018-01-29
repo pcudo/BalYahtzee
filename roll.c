@@ -4,7 +4,7 @@
 #include "roll.h"
 
 int * getRoll(char * list_of_dice_to_roll_again){
-  static int roll [6] = {0,0,0,0,0,0};
+  static int roll [6];
   int the_i_th_dice,nb_dice,dice;
 
   for (the_i_th_dice = 0; list_of_dice_to_roll_again[the_i_th_dice] ; the_i_th_dice++){
@@ -31,14 +31,14 @@ int * getRoll(char * list_of_dice_to_roll_again){
   return roll;
 }
 
-int * occToDice(int * roll){
-  int * dices;
-  int dice = 0;
-  dices = malloc(8 * sizeof(int));
-  for(int face = 0; face < 6; face++)
-    for(int nb_dup = roll[face]; nb_dup; nb_dup--)
-      dices[dice++] = face + 1;
-  return dices;
+
+int * occToDice(int duplicates [6]){
+    static int roll [8];
+    int dice = 0;
+    for (int face = 0; face < 8; face++)
+        for (int nb_dup = duplicates[face];nb_dup;nb_dup--)
+            roll [dice++] = face+1;
+    return roll;
 }
 
 #endif /* ROLL_C */

@@ -1,13 +1,15 @@
+
 CC=gcc
-CFLAGS=-O2 -g -std=c11
-SRC=balyahtzee.c roll.c
+
+SRC=roll.c balyahtzee2.c
 OBJ=$(SRC:.c=.o)
+EXEC=yam
+CFLAGS=-Wall
 
-%.o:	%.c
-	$(CC) -c $(CFLAGS) $< 
-
-balyahtzee: 	$(OBJ)
-	$(CC) $(OBJ) -o $@
+$(EXEC):    $(OBJ) roll.h balyahtzee2.h
+			$(CC) -o $@ $(OBJ)
+%.o:		%.c
+			$(CC) -c $< $(CFLAGS)
 
 clean:
-	rm *.o balyahtzee
+	rm *.o *~ core

@@ -16,50 +16,49 @@
  * =====================================================================================
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+typedef struct scoreSheet_t scoreSheet_t;
+typedef struct player_t player_t;
+typedef struct game_t game_t;
 
-typedef struct scoreSheet scoreSheet;
-typedef struct player player;
-typedef struct game game;
-
-struct game{
-    player * player1;
-    player * player2;
-    int turns;
+struct game_t{
+  player_t * player1;
+  player_t * player2;
+  int * dices;
+  char * rerollStr;
+  int rollId;
+  int turns;
 };
 
-struct scoreSheet{
-    int ones;
-    int twos;
-    int threes;
-    int fours;
-    int fives;
-    int sixes;
-    int three_of_a_kind;
-    int four_of_a_kind;
-    int five_of_a_kind;
-    int six_of_a_kind;
-    int seven_of_a_kind;
-    int eight_of_a_kind;
-    int five_and_three;
-    int four_and_four;
-    int full;
-    int small_straight;
-    int big_straight;
-    int chance;
+struct scoreSheet_t{
+  int ones;
+  int twos;
+  int threes;
+  int fours;
+  int fives;
+  int sixes;
+  int three_of_a_kind;
+  int four_of_a_kind;
+  int five_of_a_kind;
+  int six_of_a_kind;
+  int seven_of_a_kind;
+  int eight_of_a_kind;
+  int five_and_three;
+  int four_and_four;
+  int full;
+  int small_straight;
+  int big_straight;
+  int chance;
 };
 
-struct player{
-    char * name;
-    short int score;
-    scoreSheet * playerScore;
+struct player_t{
+  char * name;
+  short int score;
+  scoreSheet_t * playerScore;
 };
 
 void initGame();
-int * tour();
-scoreSheet * evalRoll(scoreSheet * previousScore, int * roll);
-void printRoll(int * roll);
+int * getRoll();
+scoreSheet_t * evalRoll(scoreSheet_t * previousScore, int * roll);
+void printRoll(char * roll);
 void nextTurn();
 

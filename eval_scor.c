@@ -3,18 +3,19 @@
 #include "balyahtzee.h"
 #include "eval_scor.h"
 
-
+/*
 int main(){
   int t[8] = {1,2,1,2,0,2}; // rool de test
-  scoreSheet s = initialize_scoreSheet(s); // initialisation
+  scoreSheet_t s = initialize_scoreSheet(s); // initialisation
   s = eval(t);   // eval
   print_scoreSheet(s);      // affiche les score
   s = which_scoreSheet(s); //choisir scoreSheet 
   print_scoreSheet(s);
 }
+*/
 
 //calcule les cas d'occurences
-scoreSheet occurences(int* roll,scoreSheet s){
+scoreSheet_t occurences(int* roll,scoreSheet_t s){
   for(int i = 0;i < 6;++i){
     if(roll[i] != 0){
       switch(i){
@@ -43,7 +44,7 @@ scoreSheet occurences(int* roll,scoreSheet s){
 }
 
 //calcul les cas identiques
-scoreSheet identical(int* roll, scoreSheet s){
+scoreSheet_t identical(int* roll, scoreSheet_t s){
   for(int i = 0;i < 6;++i){
     if(roll[i] > 2){
       switch(roll[i]){
@@ -115,7 +116,7 @@ int sum_dice(int* roll){
   return s;
 }
 
-scoreSheet combinaison(int* roll,scoreSheet s){
+scoreSheet_t combinaison(int* roll,scoreSheet_t s){
   if(five_in(roll) && three_in(roll))
     s.five_and_three = sum_dice(roll);
 
@@ -128,7 +129,7 @@ scoreSheet combinaison(int* roll,scoreSheet s){
   return s;
 }
 
-scoreSheet small_straight(int* roll, scoreSheet s){
+scoreSheet_t small_straight(int* roll, scoreSheet_t s){
   int j = 0;
   for(int i = 0;i < 6;++i){
     if(j == 4){
@@ -143,7 +144,7 @@ scoreSheet small_straight(int* roll, scoreSheet s){
   return s;
 }
 
-scoreSheet big_straight(int* roll, scoreSheet s){
+scoreSheet_t big_straight(int* roll, scoreSheet_t s){
   int j = 0;
   for(int i = 0;i < 6;++i){
     if(j == 5){
@@ -158,14 +159,14 @@ scoreSheet big_straight(int* roll, scoreSheet s){
   return s;
 }
 
-scoreSheet chance(int* roll,scoreSheet s){
+scoreSheet_t chance(int* roll,scoreSheet_t s){
   s.chance = sum_dice(roll);
   return s;
 }
 
 //Fonction evaluation du score
-scoreSheet eval(int* roll){
-  scoreSheet s = initialize_scoreSheet(s);
+scoreSheet_t eval(int* roll){
+  scoreSheet_t s = initialize_scoreSheet(s);
   s = occurences(roll,s);
   s = identical(roll,s);
   s = combinaison(roll,s);
@@ -176,29 +177,29 @@ scoreSheet eval(int* roll){
 }
 
 //fonction affichage de scoreSheet
-void print_scoreSheet(scoreSheet s){
-  printf("A -- ones                 :    %d\n\n",s.ones);
-  printf("B -- twos                 :    %d\n\n",s.twos);
-  printf("C -- threes               :    %d\n\n",s.threes);
-  printf("D -- fours                :    %d\n\n",s.fours);
-  printf("E -- fives                :    %d\n\n",s.fives);
-  printf("F -- sixes                :    %d\n\n",s.sixes);
-  printf("G -- three_of_a_kind      :    %d\n\n",s.three_of_a_kind);
-  printf("H -- four_of_a_kind       :    %d\n\n",s.four_of_a_kind);
-  printf("I -- five_of_a_kind       :    %d\n\n",s.five_of_a_kind);
-  printf("J -- six_of_a_kind        :    %d\n\n",s.six_of_a_kind);
-  printf("K -- seven_of_a_kind      :    %d\n\n",s.seven_of_a_kind);
-  printf("L -- eight_of_a_kind      :    %d\n\n",s.eight_of_a_kind);
-  printf("M -- five_and_three       :    %d\n\n",s.five_and_three);
-  printf("N -- four_and_four        :    %d\n\n",s.four_and_four);
-  printf("0 -- full                 :    %d\n\n",s.full);
-  printf("P -- small_straight       :    %d\n\n",s.small_straight);
-  printf("Q -- big_straight         :    %d\n\n",s.big_straight);
+void print_scoreSheet(scoreSheet_t s){
+  printf("A -- ones                 :    %d\n",s.ones);
+  printf("B -- twos                 :    %d\n",s.twos);
+  printf("C -- threes               :    %d\n",s.threes);
+  printf("D -- fours                :    %d\n",s.fours);
+  printf("E -- fives                :    %d\n",s.fives);
+  printf("F -- sixes                :    %d\n",s.sixes);
+  printf("G -- three_of_a_kind      :    %d\n",s.three_of_a_kind);
+  printf("H -- four_of_a_kind       :    %d\n",s.four_of_a_kind);
+  printf("I -- five_of_a_kind       :    %d\n",s.five_of_a_kind);
+  printf("J -- six_of_a_kind        :    %d\n",s.six_of_a_kind);
+  printf("K -- seven_of_a_kind      :    %d\n",s.seven_of_a_kind);
+  printf("L -- eight_of_a_kind      :    %d\n",s.eight_of_a_kind);
+  printf("M -- five_and_three       :    %d\n",s.five_and_three);
+  printf("N -- four_and_four        :    %d\n",s.four_and_four);
+  printf("0 -- full                 :    %d\n",s.full);
+  printf("P -- small_straight       :    %d\n",s.small_straight);
+  printf("Q -- big_straight         :    %d\n",s.big_straight);
   printf("R -- chance               :    %d\n",s.chance);
 }
 
-scoreSheet which_scoreSheet(scoreSheet s){
-  scoreSheet s1 = initialize_scoreSheet(s1);
+scoreSheet_t which_scoreSheet(scoreSheet_t s){
+  scoreSheet_t s1 = initialize_scoreSheet(s1);
   char decision = 0;
   printf("\nQuel score voulez-vous garder ?\n");
   scanf("%c",&decision);
@@ -261,7 +262,7 @@ scoreSheet which_scoreSheet(scoreSheet s){
   return s1;
 }
 
-scoreSheet initialize_scoreSheet(scoreSheet s){
+scoreSheet_t initialize_scoreSheet(scoreSheet_t s){
   s.ones = 0;
   s.twos = 0;
   s.threes = 0;

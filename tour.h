@@ -5,7 +5,7 @@
 #define NB_DICE 8
 
 void tourInit();
-void toRoll(int nb_dice);
+void roll(int nb_dice);
 void removeDice(char * to_roll_again);
 int strLen(char * str);
 

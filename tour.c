@@ -12,7 +12,7 @@ void tourInit(){
     Distrib[face] = 0;
 }
 
-void toRoll(int nb_dice){
+void roll(int nb_dice){
   for (int i = 0; i < nb_dice; i++)
     Distrib[rand() % 6]++;
 }
@@ -41,7 +41,7 @@ _Bool verify(char * to_roll_again){
 
 void rollAgain(char * to_roll_again){
   removeDice(to_roll_again);
-  toRoll(strLen(to_roll_again));
+  roll(strLen(to_roll_again));
 }
 
 int * distribToRoll(int Distrib [6]){
@@ -94,10 +94,9 @@ void printRoll(int * roll){
 
 int * tour(){
   int try;
-  int * roll;
   char * dice;
   
-  toRoll(NB_DICE);
+  roll(NB_DICE);
 
   do
     printf("\nSaisir 'entrer' pour lancer les dés.\n");
@@ -118,7 +117,7 @@ int * tour(){
     else 
       fprintf(stderr, "!!!choix érroné!!!\n");
   }
-    return roll;
+    return Distrib;
 }
 
 #endif /* TOUR_C */

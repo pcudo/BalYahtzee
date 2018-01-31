@@ -12,3 +12,4 @@ scoreSheet chance(int* roll,scoreSheet s);
 scoreSheet eval(int* roll);
 void print_scoreSheet(scoreSheet s);
 scoreSheet initialize_scoreSheet(scoreSheet s);
+scoreSheet which_scoreSheet(scoreSheet s);

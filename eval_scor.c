@@ -5,10 +5,12 @@
 
 
 int main(){
-  int t[8] = {3,0,0,0,2,3}; // rool de test
+  int t[8] = {1,2,1,2,0,2}; // rool de test
   scoreSheet s = initialize_scoreSheet(s); // initialisation
   s = eval(t);   // eval
   print_scoreSheet(s);      // affiche les score
+  s = which_scoreSheet(s); //choisir scoreSheet 
+  print_scoreSheet(s);
 }
 
 //calcule les cas d'occurences
@@ -175,24 +177,88 @@ scoreSheet eval(int* roll){
 
 //fonction affichage de scoreSheet
 void print_scoreSheet(scoreSheet s){
-  printf("ones                 :    %d\n\n",s.ones);
-  printf("twos                 :    %d\n\n",s.twos);
-  printf("threes               :    %d\n\n",s.threes);
-  printf("fours                :    %d\n\n",s.fours);
-  printf("fives                :    %d\n\n",s.fives);
-  printf("sixes                :    %d\n\n",s.sixes);
-  printf("three_of_a_kind      :    %d\n\n",s.three_of_a_kind);
-  printf("four_of_a_kind       :    %d\n\n",s.four_of_a_kind);
-  printf("five_of_a_kind       :    %d\n\n",s.five_of_a_kind);
-  printf("six_of_a_kind        :    %d\n\n",s.six_of_a_kind);
-  printf("seven_of_a_kind      :    %d\n\n",s.seven_of_a_kind);
-  printf("eight_of_a_kind      :    %d\n\n",s.eight_of_a_kind);
-  printf("five_and_three       :    %d\n\n",s.five_and_three);
-  printf("four_and_four        :    %d\n\n",s.four_and_four);
-  printf("full                 :    %d\n\n",s.full);
-  printf("small_straight       :    %d\n\n",s.small_straight);
-  printf("big_straight         :    %d\n\n",s.big_straight);
-  printf("chance               :    %d\n",s.chance);
+  printf("A -- ones                 :    %d\n\n",s.ones);
+  printf("B -- twos                 :    %d\n\n",s.twos);
+  printf("C -- threes               :    %d\n\n",s.threes);
+  printf("D -- fours                :    %d\n\n",s.fours);
+  printf("E -- fives                :    %d\n\n",s.fives);
+  printf("F -- sixes                :    %d\n\n",s.sixes);
+  printf("G -- three_of_a_kind      :    %d\n\n",s.three_of_a_kind);
+  printf("H -- four_of_a_kind       :    %d\n\n",s.four_of_a_kind);
+  printf("I -- five_of_a_kind       :    %d\n\n",s.five_of_a_kind);
+  printf("J -- six_of_a_kind        :    %d\n\n",s.six_of_a_kind);
+  printf("K -- seven_of_a_kind      :    %d\n\n",s.seven_of_a_kind);
+  printf("L -- eight_of_a_kind      :    %d\n\n",s.eight_of_a_kind);
+  printf("M -- five_and_three       :    %d\n\n",s.five_and_three);
+  printf("N -- four_and_four        :    %d\n\n",s.four_and_four);
+  printf("0 -- full                 :    %d\n\n",s.full);
+  printf("P -- small_straight       :    %d\n\n",s.small_straight);
+  printf("Q -- big_straight         :    %d\n\n",s.big_straight);
+  printf("R -- chance               :    %d\n",s.chance);
+}
+
+scoreSheet which_scoreSheet(scoreSheet s){
+  scoreSheet s1 = initialize_scoreSheet(s1);
+  char decision = 0;
+  printf("\nQuel score voulez-vous garder ?\n");
+  scanf("%c",&decision);
+  switch (decision){
+  case 'A':
+    s1.ones = s.ones;
+    break;
+  case 'B':
+    s1.twos = s.twos;
+    break;
+  case 'C':
+    s1.threes = s.threes;
+    break;
+  case 'D':
+    s1.fours = s.fours;
+    break;
+  case 'E':
+    s1.fives = s.fives;
+    break;
+  case 'F':
+    s1.sixes = s.sixes;
+    break;
+  case 'G':
+    s1.three_of_a_kind = s.three_of_a_kind;
+    break;
+  case 'H':
+    s1.four_of_a_kind = s.four_of_a_kind;
+    break;
+  case 'I':
+    s1.five_of_a_kind = s.five_of_a_kind;
+    break;
+  case 'J':
+    s1.six_of_a_kind = s.six_of_a_kind;
+    break;
+  case 'K':
+    s1.seven_of_a_kind = s.seven_of_a_kind;
+    break;
+  case 'L':
+    s1.eight_of_a_kind = s.eight_of_a_kind;
+    break;
+  case 'M':
+    s1.five_and_three = s.five_and_three;
+    break;
+  case 'N':
+    s1.four_and_four = s.four_and_four;
+    break;
+  case 'O':
+    s1.full = s.full;
+    break;
+  case 'P':
+    s1.small_straight = s.small_straight;
+    break;
+  case 'Q':
+    s1.big_straight = s.big_straight;
+    break;
+  case 'R':
+    s1.chance = s.chance;
+    break;
+  }
+  return s1;
 }
 
 scoreSheet initialize_scoreSheet(scoreSheet s){

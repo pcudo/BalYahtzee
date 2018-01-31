@@ -4,7 +4,7 @@ int main(){
 
 	for(;;){
 		tour();
-		printf("résultat...\n\n");
+		printf("___________FIN DU TOUR_________\nrésultat...\n\n");
 	}
 
 	return 1;

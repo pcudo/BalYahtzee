@@ -1,3 +1,6 @@
+#include "printRoll.h"
+#include "balyahtzee.h"
+
 void printRoll (int * roll){
     int size = 8;
 	int pos = 0;

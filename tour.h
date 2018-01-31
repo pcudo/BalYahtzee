@@ -16,7 +16,6 @@ int * distribToRoll(int Distrib [6]);
 void input(char * buf);
 _Bool tryAgain(int try);
 char * whatDice();
-void printRoll(int * roll);
 
 int * tour();
 

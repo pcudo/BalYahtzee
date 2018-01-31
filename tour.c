@@ -82,13 +82,13 @@ char * whatDice(){
   input(releases); 
   return releases;
 }
-
+/*
 void printRoll(int * roll){
   printf("_______________\n");
   for (int dice = 0;dice < NB_DICE;dice++)
     printf("%d ",roll[dice]);
   printf("\n");
-}
+}*/
 
 
 
@@ -103,8 +103,7 @@ int * tour(){
   while (getchar() != '\n');
 
   for (try = 1;try < NB_TRY_MAX;try++){
-      roll = distribToRoll(Distrib);
-    printRoll(roll);
+    printRoll(distribToRoll(Distrib));
 
     if (!tryAgain(try))
       break;

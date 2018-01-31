@@ -4,13 +4,8 @@
 #define NB_TRY_MAX 6
 #define NB_DICE 8
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-
 void tourInit();
-void roll(int nb_dice);
+void toRoll(int nb_dice);
 void removeDice(char * to_roll_again);
 int strLen(char * str);
 
@@ -22,7 +17,7 @@ void input(char * buf);
 _Bool tryAgain(int try);
 char * whatDice();
 void printRoll(int * roll);
-int whatCombination();
-int tour();
+
+int * tour();
 
 #endif /* TOUR_H */

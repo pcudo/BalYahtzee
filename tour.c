@@ -1,7 +1,7 @@
 #ifndef TOUR_C
 #define TOUR_C
 
-#include "balyahtzee"
+#include "balyahtzee.h"
 #include "tour.h"
 
 static int Distrib[6];
